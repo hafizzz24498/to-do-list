@@ -9,7 +9,7 @@ async function bootstrap() {
     .setTitle('To Do List Api')
     .setDescription('The todo list apic')
     .setVersion('1.0')
-    .addTag('todoList')
+    //.addTag('todoList')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
