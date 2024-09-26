@@ -13,13 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id Int @default(autoincrement()) @id
-  userName String @unique
-  email String
-  password String
-  createdAt  DateTime @default(now())
-  UpdatedAt DateTime @updatedAt
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String   // This might be optional if only using OAuth
+  googleId  String?  @unique
+  avatarUrl String?
+  provider  String?  // Optional: 'google', 'facebook', etc.
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   todos ToDo[]
   todoDreafts ToDoDraft[]
 }
